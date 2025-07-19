@@ -1,0 +1,38 @@
+# Build output folders
+/Debug/
+/Release/
+
+# CubeIDEの自動生成設定やワークスペースのキャッシュ
+/.settings/
+/.project
+.cubemx/
+/Makefile
+/Makefile.debug
+/Makefile.release
+/*.launch
+
+# バイナリや中間生成物
+*.elf
+*.map
+*.bin
+*.hex
+*.axf
+
+# オブジェクトファイル
+*.o
+*.d
+
+# ログファイル
+*.log
+
+# 一時ファイル・バックアップファイル
+*~
+*.bak
+*.swp
+
+# CubeIDEのキャッシュ
+/.cproject
+/.metadata/
+
+# その他エディタ固有ファイル（必要に応じて）
+.vscode/
