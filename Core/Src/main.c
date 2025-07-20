@@ -24,6 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "gp_can.h"
 #include "robomaster.h"
 /* USER CODE END Includes */
 
@@ -111,7 +112,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	send_motor_current(5000, 0, 0, 0);
+	send_motor_current(&hcan, 5000, 0, 0, 0);
 	HAL_Delay(10);  // 100Hz制御周期
   }
   /* USER CODE END 3 */

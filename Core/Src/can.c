@@ -22,22 +22,6 @@
 
 /* USER CODE BEGIN 0 */
 
-//フィルター設定(全受信)
-void set_can_filter_all(CAN_HandleTypeDef *hcan){
-  CAN_FilterTypeDef filter;
-  filter.FilterIdHigh         = 0x0000;
-  filter.FilterIdLow          = 0x0000;
-  filter.FilterMaskIdHigh     = 0x0000;
-  filter.FilterMaskIdLow      = 0x0000;
-  filter.FilterScale          = CAN_FILTERSCALE_16BIT;
-  filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-  filter.FilterBank           = 0;
-  filter.FilterMode           = CAN_FILTERMODE_IDMASK;
-  filter.FilterActivation     = ENABLE;
-  filter.SlaveStartFilterBank = 14;
-
-  HAL_CAN_ConfigFilter(hcan, &filter);
-}
 /* USER CODE END 0 */
 
 CAN_HandleTypeDef hcan;

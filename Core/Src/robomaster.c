@@ -53,7 +53,7 @@ void parse_motor_feedback(CAN_HandleTypeDef *hcan) {
 	}
 }
 
-void send_motor_current(int16_t m1, int16_t m2, int16_t m3, int16_t m4) {
+void send_motor_current(CAN_HandleTypeDef *hcan, int16_t m1, int16_t m2, int16_t m3, int16_t m4) {
     //送信用インスタンス等
 	CAN_TxHeaderTypeDef TxHeader;
 	uint32_t TxMailbox;
@@ -65,7 +65,7 @@ void send_motor_current(int16_t m1, int16_t m2, int16_t m3, int16_t m4) {
     TxHeader.RTR = CAN_RTR_DATA;
     TxHeader.TransmitGlobalTime = DISABLE;
 
-	if (0 < HAL_CAN_GetTxMailboxesFreeLevel(&hcan)) {
+	if (0 < HAL_CAN_GetTxMailboxesFreeLevel(hcan)) {
 
 		TxData[0] = (m1 >> 8) & 0xFF;
 		TxData[1] = m1 & 0xFF;
@@ -76,7 +76,7 @@ void send_motor_current(int16_t m1, int16_t m2, int16_t m3, int16_t m4) {
 		TxData[6] = (m4 >> 8) & 0xFF;
 		TxData[7] = m4 & 0xFF;
 		//CANメッセージを送信
-		if (HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox) != HAL_OK) {
+		if (HAL_CAN_AddTxMessage(hcan, &TxHeader, TxData, &TxMailbox) != HAL_OK) {
 			Error_Handler();
 		}
 

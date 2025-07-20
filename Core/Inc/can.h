@@ -41,7 +41,7 @@ extern CAN_HandleTypeDef hcan;
 void MX_CAN_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-void set_can_filter_all(CAN_HandleTypeDef *hcan);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

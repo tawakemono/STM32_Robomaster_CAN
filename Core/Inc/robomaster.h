@@ -29,7 +29,7 @@ typedef struct{
 extern MotorState motorstate[4];
 
 void parse_motor_feedback(CAN_HandleTypeDef* hcan);
-void send_motor_current(int16_t m1, int16_t m2, int16_t m3, int16_t m4);
+void send_motor_current(CAN_HandleTypeDef *hcan, int16_t m1, int16_t m2, int16_t m3, int16_t m4);
 
 #ifdef __cplusplus
 }
